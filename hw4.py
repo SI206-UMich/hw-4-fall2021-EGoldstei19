@@ -225,24 +225,26 @@ def main():
     inventory1 = {'chicken': 20, 'steak': 6, 'salmon': 9}
     inventory2 = {'french fries': 16, 'pretzels': 12, 'popcorn': 8}
 
-    customer1 = Customer('Ethan', 320)
-    customer2 = Customer('Tyler')
-    customer3 = Customer('Jessica', 200)
+    customer1 = Customer('Caleb', 320)
+    customer2 = Customer('Tyler', 75)
+    customer3 = Customer('Isabelle', 200)
 
     stall1 = Stall("Michigan Eatery", inventory1, 12)
     stall2 = Stall("Wolverine Corner", inventory2, 7)
 
+    cashier1 = Cashier("Northwest", directory = [stall1])
+    cashier2 = Cashier("Southwest", directory = [stall2])
+
     #Try all cases in the validate_order function
     #Below you need to have *each customer instance* try the four cases
     #case 1: the cashier does not have the stall 
-    
-    #case 2: the casher has the stall, but not enough ordered food or the ordered food item
-    
+    customer1.validate_order(cashier1, stall2, "popcorn", 2)
+    #case 2: the cashier has the stall, but not enough ordered food or the ordered food item
+    customer3.validate_order(cashier2, stall2, "french fries", 20)
     #case 3: the customer does not have enough money to pay for the order: 
-    
+    customer2.validate_order(cashier1, stall1, "salmon", 9)
     #case 4: the customer successfully places an order
-
-    pass
+    customer1.validate_order(cashier1, stall1, "steak", 2)
 
 if __name__ == "__main__":
 	main()
