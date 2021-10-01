@@ -63,7 +63,7 @@ class Cashier:
 	# Function returns cost of the order, using compute_cost method
     def place_order(self, stall, item, quantity):
         stall.process_order(item, quantity)
-        return stall.compute_cost(quantity) 
+        return stall.compute_cost(quantity)
     
     # string function.
     def __str__(self):
@@ -187,11 +187,11 @@ class TestAllMethods(unittest.TestCase):
         # Test to see if has_item returns True when a stall has enough items left
         # Please follow the instructions below to create three different kinds of test cases 
         # Test case 1: the stall does not have this food item: 
-        self.assertFalse(self.s1.has_item("Pancake", 20))
+        self.assertFalse(self.s1.has_item("Chocolate", 20))
         # Test case 2: the stall does not have enough food item: 
-        self.assertFalse(self.s1.has_item("Burger", 45))
+        self.assertFalse(self.s1.has_item("Taco", 75))
         # Test case 3: the stall has the food item of the certain quantity: 
-        self.assertTrue(self.s1.has_item("Taco", 25))
+        self.assertTrue(self.s1.has_item("Burger", 25))
 
 	# Test validate order
     def test_validate_order(self):
@@ -245,6 +245,8 @@ def main():
     customer2.validate_order(cashier1, stall1, "salmon", 9)
     #case 4: the customer successfully places an order
     customer1.validate_order(cashier1, stall1, "steak", 2)
+
+
 
 if __name__ == "__main__":
 	main()
